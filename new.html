@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div style="margin: 50px; display: flex; flex-direction: column; align-items: center;">
+            <div class="card">
+                <p class="song_name">Nome Canzone</p>
+                <input id="name" placeholder="Inserisci testo canzone" style="width: 100%;">
+            </div>
+            <div class="card">
+                <p class="song_name">Testo Canzone</p>
+                <textarea id="lyrics" onkeyup="textAreaAdjust(this)" style="width: 100%;overflow:hidden"></textarea>
+            </div>
+            <div class="card">
+                <p class="song_name">Nome File mp3</p>
+                <input id="mp3FileName" placeholder="Inserisci nome file mp3" style="width: 100%;">
+            </div>
+            <div>
+                <a href="index.html"><button id="saveBtn">Indietro</button></a>
+                <button onclick="saveNewSong()" id="saveBtn">Salva</button>
+            </div>
+            <script src="script.js"></script>
+        </div>
+    </body>
+</html>
