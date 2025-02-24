@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "FAVRET:build:production"
+              "buildTarget": "FAVRET:build:production"
             },
             "development": {
-              "browserTarget": "FAVRET:build:development"
+              "buildTarget": "FAVRET:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "FAVRET:build"
+            "buildTarget": "FAVRET:build"
           }
         },
         "test": {
