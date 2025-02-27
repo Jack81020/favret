@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "FAVRET": {
+    "favret": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -78,10 +78,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "FAVRET:build:production"
+              "buildTarget": "favret:build:production"
             },
             "development": {
-              "buildTarget": "FAVRET:build:development"
+              "buildTarget": "favret:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -89,7 +89,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "FAVRET:build"
+            "buildTarget": "favret:build"
           }
         },
         "test": {
@@ -110,6 +110,9 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
