@@ -14,22 +14,22 @@ export class SongService {
   ) { }
 
   getSongs$(): Observable<ISong[]> {
-    return this.http.get<ISong[]>("http://localhost:3000/songs");
+    return this.http.get<ISong[]>("https://favretbe.onrender.com/songs");
   }
   
   getSongById$(songId: string): Observable<ISong> {
-    return this.http.get<ISong>(`http://localhost:3000/songs/${songId}`);
+    return this.http.get<ISong>(`https://favretbe.onrender.com/songs/${songId}`);
   }
 
   addSong(song: ISong) {
-    return this.http.post<ISong[]>("http://localhost:3000/songs", song);
+    return this.http.post<ISong[]>("https://favretbe.onrender.com/songs", song);
   }
 
   editSong(song: ISong) {
-    return this.http.put<ISong[]>(`http://localhost:3000/songs/${song.id}`, song);
+    return this.http.put<ISong[]>(`https://favretbe.onrender.com/songs/${song.id}`, song);
   }
 
   removeSong(songId: number) {
-    return this.http.delete<ISong[]>(`http://localhost:3000/songs/${songId}`);
+    return this.http.delete<ISong[]>(`https://favretbe.onrender.com/songs/${songId}`);
   }
 }
