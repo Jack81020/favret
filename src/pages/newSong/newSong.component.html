@@ -1,41 +1,43 @@
 <div style="width: 100%; display: flex; flex-direction: column;">
     <button class="button-74" style="width: 100px; height: 50px; margin: 50px 50px 0 auto;" role="button" (click)="navigateToHome()">Indietro</button>
     <div style="width: 60%; margin: 100px auto; background-color: white; padding: 30px; border-radius: 15px; box-shadow: 0 0 13px 2px #0000002b;">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <mat-form-field>
-                <mat-label>Nome canzone</mat-label>
-                <input
-                    matInput
-                    placeholder="Nome canzone..."
-                    formControlName="name"
-                />
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Autore</mat-label>
-                <input
-                    matInput
-                    placeholder="Nome autore..."
-                    formControlName="author"
-                />
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Link Youtube</mat-label>
-                <input
-                    matInput
-                    placeholder="http://youtube.com/embed/F7F8FVCS"
-                    formControlName="youtubeUrl"
-                />
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Testo canzone</mat-label>
-                <textarea matInput
-                          cdkTextareaAutosize
-                          #autosize="cdkTextareaAutosize"
-                          cdkAutosizeMinRows="10"
-                          formControlName="lyrics"></textarea>
-            </mat-form-field>
-            <button class="button" type="submit">INVIA DATI</button>
-        </form>
+        @if (form) {
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <mat-form-field>
+                    <mat-label>Nome canzone</mat-label>
+                    <input
+                        matInput
+                        placeholder="Nome canzone..."
+                        formControlName="name"
+                    />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Autore</mat-label>
+                    <input
+                        matInput
+                        placeholder="Nome autore..."
+                        formControlName="author"
+                    />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Link Youtube</mat-label>
+                    <input
+                        matInput
+                        placeholder="http://youtube.com/embed/F7F8FVCS"
+                        formControlName="youtubeUrl"
+                    />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Testo canzone</mat-label>
+                    <textarea matInput
+                            cdkTextareaAutosize
+                            #autosize="cdkTextareaAutosize"
+                            cdkAutosizeMinRows="10"
+                            formControlName="lyrics"></textarea>
+                </mat-form-field>
+                <button class="button" type="submit" [disabled]="!form.valid">INVIA DATI</button>
+            </form>
+        }
     </div>
 </div>
     

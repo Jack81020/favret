@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import *  as db from '../../db.json';
 import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { ISong } from 'src/pages/home/home.component';
 
 @Injectable({
@@ -14,22 +14,22 @@ export class SongService {
   ) { }
 
   getSongs$(): Observable<ISong[]> {
-    return of(db.songs || [])
+    return this.http.get<ISong[]>("http://localhost:3000/songs");
+  }
+  
+  getSongById$(songId: string): Observable<ISong> {
+    return this.http.get<ISong>(`http://localhost:3000/songs/${songId}`);
   }
 
-  addSong(song: any) {
-    db.songs.push({
-      id: Math.max(...db.songs.map((currSong) => currSong.id))+1,
-      ...song
-    });
+  addSong(song: ISong) {
+    return this.http.post<ISong[]>("http://localhost:3000/songs", song);
   }
 
-  editSong(song: any) {
-    let oldSong = db.songs.find((currSong) => currSong.id = song.id);
-    oldSong = song;
+  editSong(song: ISong) {
+    return this.http.put<ISong[]>(`http://localhost:3000/songs/${song.id}`, song);
   }
 
-  removeSong(song: ISong) {
-    //db.songs = db.songs.filter((currSong) => currSong.id !== song.id)
+  removeSong(songId: number) {
+    return this.http.delete<ISong[]>(`http://localhost:3000/songs/${songId}`);
   }
 }

@@ -14,7 +14,7 @@ export const routes: Routes = [
     redirectTo: 'home'
   },
   {
-    path: 'song',
+    path: 'song/:id',
     component: SongComponent
   },
   {
@@ -22,7 +22,7 @@ export const routes: Routes = [
     component: newSongComponent
   },
   {
-    path: 'manage_song/{id}',
+    path: 'manage_song/:id',
     component: newSongComponent
   },
 ];

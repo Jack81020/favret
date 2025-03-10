@@ -1,21 +1,23 @@
 <div style="width: 100%; display: flex;">
-    <mat-grid-list cols="8" rowHeight="50px" gutterSize="20" style="width: 100%; margin: 50px;">
-        <mat-grid-tile colspan="4" rowspan="1">
-            <h1 style="margin-right: auto;">Iddio Cane</h1>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="4" rowspan="1" style="overflow: visible;">
-            <button class="button-74" style="margin-left: auto;" role="button" (click)="navigateToHome()">Home</button>
-        </mat-grid-tile>
-        @if (youtubeLink) {
-            <mat-grid-tile colspan="8" rowspan="5">
-                <iframe style="height: 100%; aspect-ratio: 16/9;" [src]="youtubeLink" frameborder="0" allowfullscreen></iframe>
+    @if (data) {
+        <mat-grid-list cols="8" rowHeight="50px" gutterSize="20" style="width: 100%; margin: 50px;">
+            <mat-grid-tile colspan="4" rowspan="1">
+                <h1 style="margin-right: auto;">{{data.name}}</h1>
             </mat-grid-tile>
-        }
-        <mat-grid-tile colspan="8" rowspan="10">
-            <div style = "display: flex; width: 100%; margin-bottom: auto;">
-                <p style = "font-size: 18px; flex: 1; column-count: 2; column-gap: 20px; text-align: justify;" [innerHTML]="'test'"></p>
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
+            <mat-grid-tile colspan="4" rowspan="1" style="overflow: visible;">
+                <button class="button-74" style="margin-left: auto;" role="button" (click)="navigateToHome()">Home</button>
+            </mat-grid-tile>
+            @if (data.youtubeUrl) {
+                <mat-grid-tile colspan="8" rowspan="5">
+                    <iframe style="height: 100%; aspect-ratio: 16/9;" [src]="data.youtubeUrl" frameborder="0" allowfullscreen></iframe>
+                </mat-grid-tile>
+            }
+            <mat-grid-tile colspan="8" rowspan="10">
+                <div style = "display: flex; width: 100%; margin-bottom: auto;">
+                    <p style = "font-size: 18px; flex: 1; column-count: 2; column-gap: 20px; text-align: justify;" [innerHTML]="data.lyrics"></p>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    }
 </div>
     
