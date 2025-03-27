@@ -62,7 +62,7 @@ export class newSongComponent {
 
   onSubmit() {
     if (this.route.snapshot.params['id']) {
-      this.songService.editSong({id: this.route.snapshot.params['id'], ...this.form!.value} as ISong).pipe(tap((data) => this.router.navigateByUrl('/home'))).subscribe()
+      this.songService.editSong({_id: this.route.snapshot.params['id'], ...this.form!.value} as ISong).pipe(tap((data) => this.router.navigateByUrl('/home'))).subscribe()
     } else {
       this.songService.addSong(this.form!.value as ISong).pipe(tap((data) => this.router.navigateByUrl('/home'))).subscribe()
     }

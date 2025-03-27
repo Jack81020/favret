@@ -23,7 +23,7 @@ import { SafeResourceUrl } from '@angular/platform-browser';
 })
 export class HomeComponent {
   title = 'FAVRET';
-  displayedColumns: string[] = ['id', 'name', 'author', 'options'];
+  displayedColumns: string[] = ['name', 'author', 'options'];
   dataSource: ISong[] = [];
 
   constructor(
@@ -40,13 +40,13 @@ export class HomeComponent {
   emitAction(action: 'play' | 'edit' | 'delete', element: ISong) {
     switch (action) {
       case 'play':
-        this.router.navigateByUrl(`/song/${element.id}`);
+        this.router.navigateByUrl(`/song/${element._id}`);
         break;
       case 'edit':
-        this.router.navigateByUrl(`/manage_song/${element.id}`);
+        this.router.navigateByUrl(`/manage_song/${element._id}`);
         break;
       case 'delete':
-        this.songService.removeSong(element.id!).pipe(
+        this.songService.removeSong(element._id!).pipe(
           tap(() => this.refreshData())
         ).subscribe();
         break;
@@ -64,7 +64,7 @@ export class HomeComponent {
 }
 
 export interface ISong {
-  id?: number;
+  _id?: number;
   name: string;
   author: string;
   lyrics: string;
